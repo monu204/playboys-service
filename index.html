@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PLAYBOYS SERVICE</title>
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;
+padding:20px;
+background:#080808;
+color:white;
+font-family:Arial,sans-serif;
+}
+.container{
+max-width:420px;
+margin:35px auto;
+padding:25px;
+border:1px solid #c9a343;
+border-radius:12px;
+}
+h1{
+color:#d8b45b;
+text-align:center;
+font-size:26px;
+}
+p{text-align:center;color:#ccc}
+input,textarea{
+width:100%;
+padding:13px;
+margin:9px 0;
+background:#171717;
+color:white;
+border:1px solid #777;
+border-radius:7px;
+font-size:16px;
+}
+button{
+width:100%;
+padding:14px;
+margin-top:12px;
+background:#d8b45b;
+color:#111;
+border:0;
+border-radius:7px;
+font-size:17px;
+font-weight:bold;
+}
+.small{font-size:12px;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>PLAYBOYS SERVICE</h1>
+<p>Event Entertainment Booking</p>
+
+<form id="booking">
+<input id="name" placeholder="आपका नाम" required>
+<input id="phone" type="tel" placeholder="मोबाइल नंबर" required>
+<input id="date" type="date" required>
+<textarea id="details" rows="4"
+placeholder="इवेंट की जानकारी" required></textarea>
+<button type="submit">BOOK NOW</button>
+</form>
+
+<p class="small">
+बुकिंग पूछताछ मुफ्त है। Instagram खुलने पर
+जानकारी Paste करके खुद Send करें।
+</p>
+</div>
+
+<script>
+document.getElementById("booking").addEventListener("submit",function(e){
+e.preventDefault();
+
+const message =
+"PLAYBOYS SERVICE Booking Enquiry\n"+
+"Name: "+document.getElementById("name").value+"\n"+
+"Mobile: "+document.getElementById("phone").value+"\n"+
+"Date: "+document.getElementById("date").value+"\n"+
+"Event: "+document.getElementById("details").value;
+
+if(navigator.clipboard){
+navigator.clipboard.writeText(message).then(function(){
+alert("जानकारी Copy हो गई। Instagram में Paste करके Send करें।");
+window.open("https://ig.me/m/gulam_hr14","_blank");
+});
+}else{
+alert("Instagram में जाकर जानकारी खुद लिखें।");
+window.open("https://ig.me/m/gulam_hr14","_blank");
+}
+});
+</script>
+</body>
+</html>
